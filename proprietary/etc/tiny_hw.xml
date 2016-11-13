@@ -13,9 +13,13 @@
      <!-- DAC->Speaker -->
      <ctl name="SPKL Playback Volume" val="10" />
      <ctl name="SPKR Playback Volume" val="10" />
+     <ctl name="DACL Playback Volume" val="5" />
+     <ctl name="DACR Playback Volume" val="5" />
 
      <!-- DAC->Earpiece -->
      <ctl name="EAR Playback Volume" val="10" />
+     <ctl name="DACL Playback Volume" val="5" />
+     <ctl name="DACR Playback Volume" val="5" />
 
      <!-- ADC ->(main mic)  -->
      <ctl name="ADCL Capture Volume" val="12" />
@@ -70,7 +74,6 @@
 <private name="hp mute">
   <func name="HeadPhone Mute" val="0" />
 </private>
-
 <private name="Aud Loop in VBC Switch">
   <func name="Aud Loop in VBC Switch" val="0" />
 </private>
@@ -111,7 +114,6 @@
      <ctl name="ADCL Mixer HPMICADCL Switch" val="1" />
      <ctl name="ADCR Mixer HPMICADCR Switch" val="1" />
      <ctl name="HP Mic Function" val="1" />
-     <ctl name="Headmic Bypass" val="1" />     
   </path>
   <path name="off">
      <ctl name="HP Mic Function" val="0" />
@@ -137,7 +139,6 @@
      <ctl name="HPR Mixer ADCLHPR Switch" val="1" />
   </path>
   <path name="off">
-<ctl name="HeadPhone Mute" val="1" />
      <ctl name="HPL Mixer ADCRHPL Switch" val="0" />
      <ctl name="HPR Mixer ADCLHPR Switch" val="0" />
   </path>
@@ -149,19 +150,23 @@
      <ctl name="ADCL Mixer AILADCL Switch" val="1" />
      <ctl name="ADCR Mixer AIRADCR Switch" val="1" />
      <ctl name="Line Function" val="1" />
-     </path>
+     <ctl name="HeadPhone Mute" val="0" />
+  </path>
   <path name="off">
-<ctl name="HeadPhone Mute" val="1" />
      <ctl name="Line Function" val="0" />
      <ctl name="ADCL Mixer AILADCL Switch" val="0" />
      <ctl name="ADCR Mixer AIRADCR Switch" val="0" />
   </path>
 </device>
 
-<device name="linein-capture">
+<device name="digital-fm">
   <path name="on">
+     <ctl name="Digital FM Function" val="1" />
+     <ctl name="AD IISMUX" val="1" />
   </path>
   <path name="off">
+     <ctl name="Digital FM Function" val="0" />
+     <ctl name="AD IISMUX" val="0" />
   </path>
 </device>
 
@@ -180,16 +185,14 @@
 
 <device name="headphone">
    <path name="on">
-     <ctl name="HPL Mixer DACRHPL Switch" val="1" />
-     <ctl name="HPR Mixer DACLHPR Switch" val="1" />
+     <ctl name="HPL Mixer DACLHPL Switch" val="1" />
+     <ctl name="HPR Mixer DACRHPR Switch" val="1" />
      <ctl name="HeadPhone Function" val="1" />
-    <ctl name="HeadPhone Mute" val="0" />
- 
    </path>
    <path name="off">
      <ctl name="HeadPhone Function" val="0" />
-     <ctl name="HPL Mixer DACRHPL Switch" val="0" />
-     <ctl name="HPR Mixer DACLHPR Switch" val="0" />
+     <ctl name="HPL Mixer DACLHPL Switch" val="0" />
+     <ctl name="HPR Mixer DACRHPR Switch" val="0" />
    </path>
 </device>
 
@@ -210,5 +213,5 @@
    <path name="off">
    </path>
 </device>
-
 </tinyalsa-audio>
+
