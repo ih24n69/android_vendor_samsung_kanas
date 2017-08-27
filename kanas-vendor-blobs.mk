@@ -16,6 +16,7 @@
 #
 
 PROPRIETARY_FILES := \
+	app/SandroidTeamStats/SandroidTeamStats.apk \
 	bin/at_distributor \
 	bin/engpc \
 	bin/ext_data.sh \
@@ -23,6 +24,7 @@ PROPRIETARY_FILES := \
 	bin/ext_symlink.sh \
 	bin/gps.cer \
 	bin/gpsd \
+	bin/lpm \
 	bin/macloader \
 	bin/modemd \
 	bin/nvitemd \
@@ -60,8 +62,15 @@ PROPRIETARY_FILES := \
 	lib/libsecnativefeature.so \
 	lib/libsecril-client.so \
 	lib/libsprd_agps_agent.so \
+	lib/libQmageDecoder.so \
+	lib/libwvm.so \
 	vendor/firmware/BCM4330B1_002.001.003.1025.1303.hcd \
 	vendor/firmware/vbc_eq \
+	etc/wifi/bcmdhd_apsta.bin \
+	etc/wifi/bcmdhd_sta.bin \
+	etc/wifi/bcmdhd_mfg.bin \
+	etc/wifi/nvram_net.txt \
+	etc/wifi/nvram_mfg.txt \
 
 PRODUCT_COPY_FILES += \
 	$(foreach f,$(PROPRIETARY_FILES),vendor/samsung/kanas/proprietary/$(f):system/$(f))
