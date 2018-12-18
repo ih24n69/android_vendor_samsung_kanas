@@ -23,7 +23,6 @@ PROPRIETARY_FILES := \
 	bin/ext_kill.sh \
 	bin/ext_symlink.sh \
 	bin/gps.cer \
-	bin/gpsd \
 	bin/lpm \
 	bin/macloader \
 	bin/modemd \
@@ -37,7 +36,6 @@ PROPRIETARY_FILES := \
 	lib/hw/camera2.sc8830.so \
 	lib/hw/camera.sc8830.so \
 	lib/hw/gps.default.so \
-	lib/hw/sensors.sc8830.so \
 	lib/libatchannel.so \
 	lib/libatparser.so \
 	lib/libboost.so \
@@ -66,11 +64,43 @@ PROPRIETARY_FILES := \
 	lib/libwvm.so \
 	vendor/firmware/BCM4330B1_002.001.003.1025.1303.hcd \
 	vendor/firmware/vbc_eq \
+	etc/wifi/bcmdhd_p2p.bin \
 	etc/wifi/bcmdhd_apsta.bin \
 	etc/wifi/bcmdhd_sta.bin \
 	etc/wifi/bcmdhd_mfg.bin \
 	etc/wifi/nvram_net.txt \
 	etc/wifi/nvram_mfg.txt \
+	etc/gps.conf \
+	etc/MSLConfig.txt \
+	etc/mrvl_agps_default.conf \
+	etc/mrvl_gps_platform.conf \
+	etc/pxa_testcfg.ini \
+	etc/rom.bin \
+	lib/libagps_hal.so \
+	media/battery_charging_5.qmg \
+	media/battery_charging_10.qmg \
+	media/battery_charging_15.qmg \
+	media/battery_charging_20.qmg \
+	media/battery_charging_25.qmg \
+	media/battery_charging_30.qmg \
+	media/battery_charging_35.qmg \
+	media/battery_charging_40.qmg \
+	media/battery_charging_45.qmg \
+	media/battery_charging_50.qmg \
+	media/battery_charging_55.qmg \
+	media/battery_charging_60.qmg \
+	media/battery_charging_65.qmg \
+	media/battery_charging_70.qmg \
+	media/battery_charging_75.qmg \
+	media/battery_charging_80.qmg \
+	media/battery_charging_85.qmg \
+	media/battery_charging_90.qmg \
+	media/battery_charging_95.qmg \
+	media/battery_charging_100.qmg \
+	media/battery_batteryerror.qmg \
+	media/battery_error.qmg \
+	media/chargingwarning.qmg \
+	media/Disconnected.qmg \
 
 PRODUCT_COPY_FILES += \
 	$(foreach f,$(PROPRIETARY_FILES),vendor/samsung/kanas/proprietary/$(f):system/$(f))
