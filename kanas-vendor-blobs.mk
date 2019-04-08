@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 
-PROPRIETARY_FILES := \
+PROPRIETARY_FILES_VENDOR := \
 	app/SandroidTeamStats/SandroidTeamStats.apk \
 	bin/at_distributor \
 	bin/engpc \
@@ -26,14 +26,25 @@ PROPRIETARY_FILES := \
 	bin/lpm \
 	bin/macloader \
 	bin/phoneserver \
-	bin/rild \
+	etc/MSLConfig.txt \
+	etc/mrvl_agps_default.conf \
+	etc/mrvl_gps_platform.conf \
+	etc/pxa_testcfg.ini \
+	etc/rom.bin \
+	etc/wifi/bcmdhd_p2p.bin \
+	etc/wifi/bcmdhd_apsta.bin \
+	etc/wifi/bcmdhd_sta.bin \
+	etc/wifi/bcmdhd_mfg.bin \
+	etc/wifi/nvram_net.txt \
+	etc/wifi/nvram_mfg.txt \
+	etc/gps.conf \
+	lib/libagps_hal.so \
 	lib/egl/libEGL_mali.so \
 	lib/egl/libGLESv1_CM_mali.so \
 	lib/egl/libGLESv2_mali.so \
 	lib/hw/camera2.sc8830.so \
 	lib/hw/camera.sc8830.so \
 	lib/hw/gps.default.so \
-	lib/libatchannel.so \
 	lib/libatparser.so \
 	lib/libboost.so \
 	lib/libfactoryutil.so \
@@ -52,28 +63,10 @@ PROPRIETARY_FILES := \
 	lib/libomx_mp3dec_sprd.so \
 	lib/libomx_vpxdec_hw_sprd.so \
 	lib/libreference-ril_sp.so \
-	lib/libril.so \
-	lib/librilutils.so \
 	lib/libsecnativefeature.so \
-	lib/libsecril-client.so \
 	lib/libsprd_agps_agent.so \
 	lib/libQmageDecoder.so \
 	lib/libwvm.so \
-	vendor/firmware/BCM4330B1_002.001.003.1025.1303.hcd \
-	vendor/firmware/vbc_eq \
-	etc/wifi/bcmdhd_p2p.bin \
-	etc/wifi/bcmdhd_apsta.bin \
-	etc/wifi/bcmdhd_sta.bin \
-	etc/wifi/bcmdhd_mfg.bin \
-	etc/wifi/nvram_net.txt \
-	etc/wifi/nvram_mfg.txt \
-	etc/gps.conf \
-	etc/MSLConfig.txt \
-	etc/mrvl_agps_default.conf \
-	etc/mrvl_gps_platform.conf \
-	etc/pxa_testcfg.ini \
-	etc/rom.bin \
-	lib/libagps_hal.so \
 	media/battery_charging_5.qmg \
 	media/battery_charging_10.qmg \
 	media/battery_charging_15.qmg \
@@ -97,7 +90,13 @@ PROPRIETARY_FILES := \
 	media/battery_batteryerror.qmg \
 	media/battery_error.qmg \
 	media/chargingwarning.qmg \
-	media/Disconnected.qmg \
+	media/Disconnected.qmg
+
+# All other files that really needed to go to the /system/ partition
+PROPRIETARY_FILES_SYSTEM := \
+	vendor/firmware/BCM4330B1_002.001.003.1025.1303.hcd \
+	vendor/firmware/vbc_eq
 
 PRODUCT_COPY_FILES += \
-	$(foreach f,$(PROPRIETARY_FILES),vendor/samsung/kanas/proprietary/$(f):system/$(f))
+	$(foreach f,$(PROPRIETARY_FILES_SYSTEM),vendor/samsung/kanas/proprietary/$(f):system/$(f)) \
+	$(foreach f,$(PROPRIETARY_FILES_VENDOR),vendor/samsung/kanas/proprietary/$(f):system/vendor/$(f))
